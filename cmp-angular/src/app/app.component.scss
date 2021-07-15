@@ -1,0 +1,23 @@
+#app {
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    
+    .nav-style {
+        background-color: #1f3668d2;
+        color: white;
+    }
+    #footer {
+        margin-top: auto;
+        
+        .rights-style {
+            background-color: #1f3668; 
+            color: white; 
+            font-size: 18px; 
+            font-weight: bold; 
+            text-align: center;
+            padding: 10px;
+        }
+    }   
+}
+

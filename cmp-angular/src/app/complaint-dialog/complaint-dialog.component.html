@@ -1,0 +1,21 @@
+<div class="center">
+    <form class="form-style" [formGroup]="complaintForm">
+        <mat-form-field class="form-field-style">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" required>
+        </mat-form-field>
+
+        <mat-form-field class="form-field-style">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" required></textarea>
+        </mat-form-field>
+        <mat-form-field class="form-field-style">
+            <mat-label>Status</mat-label>
+            <input matInput formControlName="status" readonly value="PENDING" class="pending-style">
+        </mat-form-field>
+
+        <button mat-raised-button color="accent" type="submit" (click)="createComplaint()"
+            [disabled]="complaintForm.invalid" [mat-dialog-close]>Submit Complaint</button>
+    </form>
+
+</div>

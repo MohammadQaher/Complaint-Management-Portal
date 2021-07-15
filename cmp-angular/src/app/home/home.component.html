@@ -1,0 +1,23 @@
+<div *ngIf="!isLoggedIn">
+  <div class="home-body">
+    <div>
+      <img class="image-style" src="../../assets/cmp.jpg" />
+    </div>
+
+    <div class="welcome-style">
+      Welcome to CMP (Complaint Management Portal) 😊
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isLoggedIn">
+  <div class="home-body">
+    <div>
+      <img class="image-style" src="../../assets/cmp.jpg" />
+    </div>
+
+    <div class="welcome-style">
+      Welcome {{username}} to CMP (Complaint Management Portal) 😊
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="admin-board-style">
+  <div class="admin-board-header">
+    All Users Complaints
+  </div>
+  <div class="admin-table-style">
+    <button mat-raised-button color="primary" (click)="getAdminComplaint()">Refresh Table</button>
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z5" style="width: 100%; margin-top: 10px;">
+
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell class="w-20" *matHeaderCellDef>ID
+        </mat-header-cell>
+        <mat-cell class="w-20" *matCellDef="let element">
+          {{element.rid}}
+        </mat-cell>
+      </ng-container>
+
+      <!-- Title Column -->
+      <ng-container matColumnDef="title">
+        <mat-header-cell class="w-20" *matHeaderCellDef>Title
+        </mat-header-cell>
+        <mat-cell class="w-20" *matCellDef="let element">
+          {{element.title}}
+        </mat-cell>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+        <mat-header-cell class="w-40" *matHeaderCellDef>Description
+        </mat-header-cell>
+        <mat-cell class="w-40" *matCellDef="let element">
+          {{element.description}}
+        </mat-cell>
+      </ng-container>
+
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <mat-header-cell class="w-20" *matHeaderCellDef>Status
+        </mat-header-cell>
+        <mat-cell class="w-20" *matCellDef="let element">
+          <span *ngIf="element.status=='PENDING'" class="pending-style">{{element.status}}</span>
+          <span *ngIf="element.status=='RESOLVED'" class="resolved-style">{{element.status}}</span>
+          <span *ngIf="element.status=='DISMISSED'" class="dismissed-style">{{element.status}}</span>
+        </mat-cell>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="Action">
+        <mat-header-cell class="w-20" *matHeaderCellDef>Action
+        </mat-header-cell>
+        <mat-cell class="w-20" *matCellDef="let element">
+          <div style="display: flex; flex-direction: row; justify-content: space-evenly;">
+            <div style="margin: 3px; color: rgb(36, 92, 36);">
+              <i class="fas fa-edit clickable" (click)="openDialog(element)"></i>
+            </div>
+            <div style="margin: 3px; color: rgb(196, 49, 49);">
+              <i class="fas fa-trash-alt clickable" (click)="deleteComplaint(element.rid)"></i>
+            </div>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+</div>

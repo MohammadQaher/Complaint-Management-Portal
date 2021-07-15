@@ -1,0 +1,22 @@
+.admin-board-style {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px 0px;
+    text-align: center;
+
+    .admin-board-header {
+        margin-top: 10px;
+        background-color: #7a8fc0;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        box-shadow: 2px 2px 6px #5e677a;
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    .admin-table-style {
+        margin-top: 20px;
+    }
+}

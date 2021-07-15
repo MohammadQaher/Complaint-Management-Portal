@@ -1,0 +1,418 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~src/_variables.scss";
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+$defaultFontSize:16px;
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: $defaultFontSize !important;
+    background-color: rgb(233, 233, 233);
+}
+
+#loading-bar {
+    .bar {
+        background: $primary !important;
+        height: 4px !important;
+    }
+}
+
+.clickable {
+    cursor: pointer;
+    outline: none;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+.email {
+    word-break: break-all;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.link {
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+    outline: none;
+}
+
+.primary-color {
+    color: $primary;
+}
+
+.accent-color {
+    color: $accent;
+}
+
+.success-color {
+    color: $success;
+}
+
+.error-color {
+    color: $error;
+}
+
+.info-color {
+    color: $info;
+}
+
+.warning-color {
+    color: $warning;
+}
+
+.primary-background-color {
+    background-color: $primary;
+}
+
+.accent-background-color {
+    background-color: $accent;
+}
+
+.success-background-color {
+    background-color: $success;
+}
+
+.error-background-color {
+    background-color: $error;
+}
+
+.info-background-color {
+    background-color: $info;
+}
+
+.warning-background-color {
+    background-color: $warning;
+}
+
+$spacingBase : 8px;
+
+@for $i from 1 through 3 {
+    .padding-lr-#{$i} {
+        padding-left: $spacingBase * $i;
+        padding-right: $spacingBase * $i;
+    }
+
+    .padding-#{$i} {
+        padding: $spacingBase * $i;
+    }
+
+    .padding-t-#{$i} {
+        padding-top: $spacingBase * $i;
+    }
+
+    .margin-#{$i} {
+        margin: $spacingBase * $i;
+    }
+
+    .margin-t-#{$i} {
+        margin-top: $spacingBase * $i;
+    }
+
+    .margin-b-#{$i} {
+        margin-bottom: $spacingBase * $i;
+    }
+
+    .margin-tb-#{$i} {
+        margin-top: $spacingBase * $i;
+        margin-bottom: $spacingBase * $i;
+    }
+}
+
+.font-size-three-quarters {
+    font-size: 0.75em;
+    line-height: normal;
+}
+
+.font-size-one-half {
+    font-size: 1.5em;
+    line-height: normal;
+}
+
+.font-size-two {
+    font-size: 2em;
+    line-height: normal;
+}
+
+.card {
+    padding: $spacingBase;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+i.fa,
+i.fab,
+i.fad,
+i.fal,
+i.far,
+i.fas {
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    line-height: 1em;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.message-box {
+    border-radius: 4px;
+    padding: $spacingBase;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    place-content: flex-start;
+    align-items: center;
+
+    .icon {
+        margin: auto $spacingBase;
+        font-size: 1.5em;
+        box-sizing: border-box;
+        display: flex;
+        place-content: center;
+        align-items: center;
+        width: 28px;
+        min-width: 28px;
+        height: 28px;
+        min-height: 28px;
+    }
+
+    &.success {
+        background-color: $success;
+    }
+
+    &.info {
+        background-color: $info;
+    }
+
+    &.warning {
+        background-color: $warning;
+    }
+
+    &.error {
+        background-color: $error;
+    }
+}
+
+
+.mat-paginator {
+    background: transparent !important;
+    font-weight: bold;
+}
+
+.mat-table {
+
+    mat-row.mat-row {
+        align-items: stretch;
+        word-break: break-word;
+
+        &:nth-child(odd) {
+            background: $soft-grey;
+        }
+    }
+
+    .mat-header-row {
+        background-color: $primary;
+
+        .mat-header-cell {
+            font-size: 1em;
+            color: white;
+            text-align: center;
+            .mat-sort-header-arrow {
+                color: white;
+            }
+        }
+    }
+
+    @for $i from 0 through 100 {
+        .w-#{$i} {
+            max-width: percentage($i/100);
+        }
+    }
+
+    @for $i from 0 through 500 {
+        .w-#{$i}-px {
+            max-width: $i + 0px;
+        }
+    }
+}
+
+.mat-flat-button,
+.mat-raised-button,
+.mat-fab,
+.mat-mini-fab {
+    white-space: normal !important;
+}
+
+.mat-flat-button.mat-primary,
+.mat-raised-button.mat-primary,
+.mat-fab.mat-primary,
+.mat-mini-fab.mat-primary {
+    color: white !important; //the primary color degree made theme make any inside text as black instead of white
+}
+
+.mat-chip.mat-standard-chip.mat-chip-selected.mat-primary {
+    color: white !important; //the primary color degree made theme make any inside text as black instead of white
+}
+
+mat-hint {
+    font-weight: bold;
+}
+
+.mat-button-base {
+    font-size: $defaultFontSize !important;
+
+    i {
+        vertical-align: unset !important;
+        margin: 0 2px;
+    }
+}
+
+mat-expansion-panel {
+    margin-bottom: 16px !important;
+}
+
+mat-tab-group {
+    mat-tab-header {
+        .mat-tab-label {
+            opacity: initial !important;
+            font-weight: bold !important;
+        }
+    }
+
+    mat-tab-body {
+        min-height: 100px !important; //sometimes if tabs content has little content, the style of tabs will be ruined.
+
+        &.mat-tab-body-active {
+            overflow-y: hidden !important;
+
+            .mat-tab-body-content {
+                padding: 6px;
+
+            }
+        }
+
+    }
+}
+
+mat-expansion-panel-header {
+    //make the header heights expand for text in the header
+    height: auto !important;
+
+    &:not(.mat-expanded) {
+        min-height: 48px !important;
+    }
+
+    &.mat-expanded {
+        min-height: 64px !important;
+    }
+}
+
+mat-radio-group {
+    mat-radio-button:not(:last-child) {
+        margin: 4px;
+    }
+}
+
+label~mat-radio-group {
+    margin: 4px;
+}
+
+mat-error.mat-error {
+    font-weight: bold;
+}
+
+.mat-form-field {
+    padding-right: $spacingBase;
+    padding-left: $spacingBase;
+
+    .mat-form-field-label:not(.mat-form-field-empty) {
+        font-weight: bold;
+    }
+
+    .mat-form-field-required-marker.mat-placeholder-required {
+        color: $warn !important;
+    }
+
+    .mat-form-field-underline {
+        height: 2px !important;
+    }
+
+    .mat-form-field-ripple {
+        height: 3px !important;
+    }
+}
+
+.mat-field-padding {
+    padding-right: $spacingBase;
+    padding-left: $spacingBase;
+}
+
+mat-checkbox {
+    .mat-checkbox-label {
+        white-space: normal !important;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.ltr-input {
+    text-align: left !important;
+    direction: ltr !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.pending-style {
+    background-color: #396d97;
+    padding: 5px 29px;
+    font-weight: bold;
+    color: white;
+    border-radius: 20px;
+}
+
+.resolved-style{
+    background-color: #2e9255;
+    padding: 5px 25px;    
+    font-weight: bold;
+    color: white;
+    border-radius: 20px;
+}
+
+.dismissed-style {
+    background-color: #b33737;
+    padding: 5px 23px;
+    font-weight: bold;
+    color: white;
+    border-radius: 20px;
+}

@@ -1,0 +1,38 @@
+<main>
+  <div id="app">
+    <nav class="navbar nav-style navbar-expand navbar-dark text-white">
+      <div>
+        <a href="#" class="navbar-brand">CMP</a>
+      </div>
+
+      <ul class="navbar-nav mr-auto" routerLinkActive="active">
+        <li class="nav-item">
+          <a href="/home" class="nav-link" routerLink="home">Home</a>
+        </li>
+        <li class="nav-item" *ngIf="showAdminBoard">
+          <a href="/admin" class="nav-link" routerLink="admin">All Complaints</a>
+        </li>
+        <li class="nav-item" *ngIf="!showAdminBoard">
+          <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">My Complaints</a>
+        </li>
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+        </li>
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a href="/login" class="nav-link" routerLink="login">Login</a>
+        </li>
+
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a href="/profile" class="nav-link" routerLink="profile">Profile</a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a href class="nav-link" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</main>

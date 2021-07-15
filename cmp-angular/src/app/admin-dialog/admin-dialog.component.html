@@ -1,0 +1,36 @@
+<div class="center">
+    <form class="example-form" [formGroup]="complaintForm">
+
+        <mat-form-field class="example-full-width">
+            <mat-label>ID</mat-label>
+            <input matInput formControlName="rid" readonly>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" readonly></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-select formControlName="status">
+                <mat-option value="PENDING">
+                    PENDING
+                </mat-option>
+                <mat-option value="RESOLVED">
+                    RESOLVED
+                </mat-option>
+                <mat-option value="DISMISSED">
+                    DISMISSED
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button color="accent" type="submit" (click)="updateComplaint()" [mat-dialog-close]>Change
+            Status</button>
+    </form>
+
+</div>

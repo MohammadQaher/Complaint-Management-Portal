@@ -1,0 +1,66 @@
+<div class="register-style">
+  <div class="form-style" *ngIf="!isSuccessful">
+    <div style="text-align: center; margin-bottom: 5px;">
+      <i class="fas fa-user fa-3x primary-color"></i>
+      <p style="font-weight: bold; font-size: 20px; margin-top: 5px;">
+        Register
+      </p>
+    </div>
+    <form name="form" (ngSubmit)="registerFrom.form.valid && onSubmit()" #registerFrom="ngForm" novalidate>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required minlength="3"
+          maxlength="25" #username="ngModel" />
+        <div class="alert-danger" *ngIf="username.errors && registerFrom.submitted">
+          <div *ngIf="username.errors.required">Username is required</div>
+          <div *ngIf="username.errors.minlength">
+            Username must be at least 3 characters
+          </div>
+          <div *ngIf="username.errors.maxlength">
+            Username must be at most 25 characters
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email
+          #email="ngModel" />
+        <div class="alert-danger" *ngIf="email.errors && registerFrom.submitted">
+          <div *ngIf="email.errors.required">Email is required</div>
+          <div *ngIf="email.errors.email">
+            Email must be a valid email address
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="3"
+          #password="ngModel" />
+        <div class="alert-danger" *ngIf="password.errors && registerFrom.submitted">
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">
+            Password must be at least 3 characters
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" style="text-align: center;">
+        <button mat-raised-button type="submit" color="primary">Sign Up</button>
+      </div>
+
+      <div class="alert alert-warning" *ngIf="registerFrom.submitted && isSignUpFailed" style="text-align: center;">
+        Signup failed!<br />{{ errorMessage }}
+      </div>
+    </form>
+  </div>
+
+  <div class="alert alert-success" *ngIf="isSuccessful" style="margin-top: 30px;">
+    Your registration is successful! <br />
+    <br />
+    Redirecting you to home page in <ng-container [counter]="5" [interval]="1000" (value)="count = $event">
+      <span> {{ count }} </span>
+    </ng-container>...
+  </div>
+</div>
